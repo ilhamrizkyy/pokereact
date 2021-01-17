@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React, { Component } from "react";
-import { Route, NavLink, HashRouter } from "react-router-dom";
+import { Route, NavLink, HashRouter, Switch } from "react-router-dom";
 import Dasboard from "./Dashboard";
+import PokemonDetail from "./pokemon/PokemonDetail.js"
 
 import "./App.css";
 
@@ -16,7 +17,10 @@ class App extends Component {
 						<li><NavLink to="/">Pokemon List</NavLink></li>
 					</ul>
 					<div className="content container">
-						<Dasboard></Dasboard>
+						<Switch>
+							<Route exact path="/" component={Dasboard}></Route>
+							<Route exact path="/pokemondetail/:pokemonIndex" component={PokemonDetail} />
+						</Switch>
 					</div>
 				</HashRouter>
 			</div>
