@@ -3,20 +3,20 @@ import React, { createContext } from 'react';
 const PokemonContext = createContext();
 
 export class PokemonProvider extends React.Component {
-  updatemypokemon = newpokemon => {
+  updatepokemon = newpokemon => {
     this.setState({ pokemon: this.state.pokemon.concat(newpokemon) });
   };
 
-  releasepokemon = nickname => {
+  releasepokemon = name => {
     let filteredPokemon = this.state.pokemon.filter(function(pokemon){
-      return nickname !== pokemon.nickname;
+      return name !== pokemon.name;
     });
     this.setState({ pokemon: filteredPokemon });
   };
 
   state = {
     pokemon: [],
-    updatemypokemon: this.updatemypokemon,
+    updatepokemon: this.updatepokemon,
     releasepokemon: this.releasepokemon
   };
 

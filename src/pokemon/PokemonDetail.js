@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import { PokemonConsumer } from './PokemonContext';
+
 
 const TYPE_COLORS = {
   bug: 'B1C12E',
@@ -190,6 +192,20 @@ export default class PokemonDetail extends Component {
 
 
   render() {
+    const { name, pokemon_details } = this.state;
+
+    function catchPokemon() {
+      if (Math.random() >= 0.5) {
+        return prompt("Gotcha! " + name.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ') 
+        + " was caught! \nGive " + name.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ') 
+        + " a nickname");
+      } else {
+        alert("Wild " + name.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ')
+         + " fled!");
+        return false;
+      }
+    }
+
     return (
       <div className="col">
         <div className="card mb-4">
@@ -441,23 +457,31 @@ export default class PokemonDetail extends Component {
           <div className="card-body">
             <h5 class="card-title text-center">Learnable Moves</h5>
             <div className="col-12">
-                <div className="row p-5 pt-2">
-                  {this.state.moves.map(move => (
-                    <h6 className="col-md-2">{move
-                      .toLowerCase()
-                      .split('-')
-                      .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-                      .join(' ')}</h6>
-                  ))}
-                </div>
+              <div className="row p-5 pt-2">
+                {this.state.moves.map(move => (
+                  <h6 className="col-md-2">{move
+                    .toLowerCase()
+                    .split('-')
+                    .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+                    .join(' ')}</h6>
+                ))}
               </div>
+            </div>
           </div>
           <div class="card-footer text-center">
-            <Button variant="primary" className="col-2">Catch {this.state.name
-                    .toLowerCase()
-                    .split(' ')
-                    .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-                    .join(' ')}</Button>
+            <Button variant="primary" className="col-2" onClick={event => {
+              let nickname = catchPokemon();
+              if (nickname) {
+                PokemonConsumer.updatepokemon([{ name: name, nickname: nickname }]);
+                alert(name.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ') +
+                " successfully added to [My Pokemon]");
+              }
+            }}>Catch {this.state.name
+              .toLowerCase()
+              .split(' ')
+              .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+              .join(' ')}
+            </Button>
           </div>
         </div>
       </div >
