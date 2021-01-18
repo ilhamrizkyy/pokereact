@@ -4,6 +4,12 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
+const Sprites = styled.img`
+    width: 5em;
+    height: 5em;
+    border: none;
+`
+
 const Cards = styled.div`
 opacity: 0.95;
 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -42,10 +48,13 @@ class MyPokemon extends Component {
     }
     componentDidMount() {
         const name = this.state.name;
-        const url = this.state.url;
+        const pokemonIndex = this.state.pokemonIndex;
+        const imageUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`;
 
         this.setState({
             name: name,
+            imageUrl: imageUrl,
+            pokemonIndex: pokemonIndex,
         })
     }
 
@@ -60,19 +69,22 @@ class MyPokemon extends Component {
                         <div className="row">
                             {
                                 pokemon.length > 0 ? pokemon.map(item => {
-                                    const { name, nickname, id } = item;
+                                    const { name, nickname, id, pokemonIndex, imageUrl } = item;
 
                                     return (
                                         <div className="col-md-4 col-sm-6 mb-4">
                                             <StyleLink>
                                                 <Cards className="card">
                                                     <div className="card-header">
-                                                        <h5>{this.state.pokemonIndex}</h5>
+                                                        <h5>{pokemonIndex}</h5>
                                                     </div>
+                                                    <Sprites className="card img-top mx-auto mt-2"
+                                                        src={imageUrl}>
+                                                    </Sprites>
                                                     <div className="myPokemon" key={Math.random()}>
                                                         <center>
-                                                            <h5 className="p-2 pb-1">{nickname}</h5>
                                                             <div className="card-body mx-auto">
+                                                                <h5 className="p-2 pb-1">{nickname}</h5>
                                                                 <h6 className="card-title">(
                                                                 {name.toLowerCase().split(" ").map(
                                                                     letter => letter.charAt(0).toUpperCase() + letter.substring(1)
@@ -83,7 +95,7 @@ class MyPokemon extends Component {
                                                             <Button variant="danger" onClick={() => releasepokemon(id)} className="mb-4">
                                                                 Release {name.toLowerCase().split(" ").map(
                                                                 letter => letter.charAt(0).toUpperCase() + letter.substring(1)
-                                                            ).join("")}
+                                                            ).join("")} ({nickname})
                                                             </Button>
                                                         </center>
                                                     </div>
