@@ -474,7 +474,7 @@ export default class PokemonDetail extends Component {
                 <Button variant="primary" className="col-2" onClick={event => {
                   let nickname = catchPokemon();
                   if (nickname) {
-                    updatepokemon([{ name: name, nickname: nickname }]);
+                    updatepokemon([{ name: name, nickname: nickname, id: nickname }]);
                     alert(name.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ') +
                       " successfully added to [My Pokemon]");
                   }

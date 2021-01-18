@@ -7,9 +7,9 @@ export class PokemonProvider extends React.Component {
     this.setState({ pokemon: this.state.pokemon.concat(newpokemon) });
   };
 
-  releasepokemon = name => {
+  releasepokemon = id => {
     let filteredPokemon = this.state.pokemon.filter(function(pokemon){
-      return name !== pokemon.name;
+      return id !== pokemon.id;
     });
     this.setState({ pokemon: filteredPokemon });
   };
@@ -17,7 +17,7 @@ export class PokemonProvider extends React.Component {
   state = {
     pokemon: [],
     updatepokemon: this.updatepokemon,
-    releasepokemon: this.releasepokemon
+    releasepokemon: this.releasepokemon,
   };
 
   render() {

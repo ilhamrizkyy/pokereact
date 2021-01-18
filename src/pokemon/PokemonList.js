@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PokemonCard from './PokemonCard';
+
 import axios from 'axios';
 
 export default class PokemonList extends Component {
@@ -13,9 +14,14 @@ export default class PokemonList extends Component {
         this.setState({ pokemon: res.data['results'] });
     }
 
+    
+
     render() {
         return (
             <div>
+                <center>
+                    <h2 className="pb-3">Pokemon List</h2>
+                </center>
                 {this.state.pokemon ? (
                     <div className="row">
                         {this.state.pokemon.map(pokemon => (

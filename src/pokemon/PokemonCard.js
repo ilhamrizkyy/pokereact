@@ -59,7 +59,7 @@ export default class PokemonCard extends Component {
     }
     render() {
         return (
-            <div className="col-md-4 col-sm-6 mb-5">
+            <div className="col-md-4 col-sm-6 mb-4">
                 <StyleLink to={`pokemondetail/${this.state.pokemonIndex}`}>
                     <Cards className="card">
                         <div className="card-header">
@@ -96,7 +96,7 @@ export default class PokemonCard extends Component {
                 </StyleLink>
                 <div className="card-body mx-auto">
                     <h6 className="card-title">
-                        Owned: 
+                        Owned:
                     </h6>
                 </div>
             </div>
