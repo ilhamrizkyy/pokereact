@@ -54,7 +54,6 @@ export default class PokemonCard extends Component {
             name: name,
             imageUrl: imageUrl,
             pokemonIndex: pokemonIndex,
-
         })
     }
     render() {
@@ -94,11 +93,6 @@ export default class PokemonCard extends Component {
                         </div>
                     </Cards>
                 </StyleLink>
-                <div className="card-body mx-auto">
-                    <h6 className="card-title">
-                        Owned:
-                    </h6>
-                </div>
             </div>
         )
     }

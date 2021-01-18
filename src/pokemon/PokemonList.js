@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PokemonCard from './PokemonCard';
+import { PokemonConsumer } from './PokemonContext';
+import styled from '@emotion/styled';
 
 import axios from 'axios';
+
 
 export default class PokemonList extends Component {
     state = {
@@ -14,28 +17,35 @@ export default class PokemonList extends Component {
         this.setState({ pokemon: res.data['results'] });
     }
 
-    
+
 
     render() {
         return (
-            <div>
-                <center>
-                    <h2 className="pb-3">Pokemon List</h2>
-                </center>
-                {this.state.pokemon ? (
-                    <div className="row">
-                        {this.state.pokemon.map(pokemon => (
-                            <PokemonCard
-                                key={pokemon.name}
-                                name={pokemon.name}
-                                url={pokemon.url}
-                            />
-                        ))}
+            <PokemonConsumer>
+                {({ pokemon }) => (
+                    <div>
+                        <center>
+                            <h2>Pokemon List</h2>
+                        </center>
+                        <center>
+                            <h5 className="pb-3">Total Pokemon Owned: {pokemon.length}</h5>
+                        </center>
+                        {this.state.pokemon ? (
+                            <div className="row">
+                                {this.state.pokemon.map(pokemon => (
+                                    <PokemonCard
+                                        key={pokemon.name}
+                                        name={pokemon.name}
+                                        url={pokemon.url}
+                                    />
+                                ))}
+                            </div>
+                        ) : (
+                                <h1>Loading</h1>
+                            )}
                     </div>
-                ) : (
-                        <h1>Loading</h1>
-                    )}
-            </div>
+                )}
+            </PokemonConsumer>
         )
     }
 }

@@ -51,6 +51,7 @@ export default class PokemonDetail extends Component {
     evs: '',
     hatchSteps: '',
     moves: [],
+    count: 0
   }
 
   async componentDidMount() {
@@ -127,6 +128,7 @@ export default class PokemonDetail extends Component {
           .join(' ')}`;
       })
       .join(', ');
+
 
     // Get Pokemon Description .... Is from a different end point uggh
     await axios.get(pokemonSpeciesUrl).then(res => {
@@ -258,7 +260,7 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         HP
                     </div>
-                      <div className="col-12 col-md-8">
+                      <div className="col-12 col-md-6">
                         <div className="progress-bar" role="progressBar" style={{
                           width: `${this.state.stats.hp}%`,
                           backgroundColor: `#${this.state.themeColor}`,
@@ -276,7 +278,7 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         Attack
                     </div>
-                      <div className="col-12 col-md-8">
+                      <div className="col-12 col-md-6">
                         <div className="progress-bar" role="progressBar" style={{
                           width: `${this.state.stats.attack}%`,
                           backgroundColor: `#${this.state.themeColor}`,
@@ -294,7 +296,7 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         Defense
                     </div>
-                      <div className="col-12 col-md-8">
+                      <div className="col-12 col-md-6">
                         <div className="progress-bar" role="progressBar" style={{
                           width: `${this.state.stats.defense}%`,
                           backgroundColor: `#${this.state.themeColor}`,
@@ -312,7 +314,7 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         Speed
                     </div>
-                      <div className="col-12 col-md-8">
+                      <div className="col-12 col-md-6">
                         <div className="progress-bar" role="progressBar" style={{
                           width: `${this.state.stats.speed}%`,
                           backgroundColor: `#${this.state.themeColor}`,
@@ -330,7 +332,7 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         Special Attack
                     </div>
-                      <div className="col-12 col-md-8">
+                      <div className="col-12 col-md-6">
                         <div className="progress-bar" role="progressBar" style={{
                           width: `${this.state.stats.specialAttack}%`,
                           backgroundColor: `#${this.state.themeColor}`,
@@ -348,7 +350,7 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         Special Defense
                     </div>
-                      <div className="col-12 col-md-8">
+                      <div className="col-12 col-md-6">
                         <div className="progress-bar" role="progressBar" style={{
                           width: `${this.state.stats.specialDefense}%`,
                           backgroundColor: `#${this.state.themeColor}`,
@@ -471,10 +473,10 @@ export default class PokemonDetail extends Component {
                 </div>
               </div>
               <div class="card-footer text-center">
-                <Button variant="primary" className="col-2" onClick={event => {
+                <Button variant="primary" className="col-md-2 col-sm-6" onClick={event => {
                   let nickname = catchPokemon();
                   if (nickname) {
-                    updatepokemon([{ name: name, nickname: nickname, id: nickname, pokemonIndex: this.state.pokemonIndex, imageUrl: this.state.imageUrl }]);
+                    updatepokemon([{ name: name, nickname: nickname, id: nickname+name, pokemonIndex: this.state.pokemonIndex, imageUrl: this.state.imageUrl }]);
                     alert(nickname + " (" + name.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ') +
                       ") successfully added to [My Pokemon]");
                   }
