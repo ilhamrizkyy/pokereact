@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PokemonCard from './PokemonCard';
 import { PokemonConsumer } from './PokemonContext';
-import styled from '@emotion/styled';
 
 import axios from 'axios';
 

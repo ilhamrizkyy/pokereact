@@ -89,13 +89,13 @@ class MyPokemon extends Component {
                                                                 {name.toLowerCase().split(" ").map(
                                                                     letter => letter.charAt(0).toUpperCase() + letter.substring(1)
                                                                 ).join("")}
-                                                             )
-                                                            </h6>
+                                                                )
+                                                                </h6>
                                                             </div>
                                                             <Button variant="danger" onClick={() => releasepokemon(id)} className="mb-4">
-                                                                Release {name.toLowerCase().split(" ").map(
+                                                                Release {nickname} ({name.toLowerCase().split(" ").map(
                                                                 letter => letter.charAt(0).toUpperCase() + letter.substring(1)
-                                                            ).join("")} ({nickname})
+                                                            ).join("")})
                                                             </Button>
                                                         </center>
                                                     </div>
