@@ -370,7 +370,7 @@ export default class PokemonDetail extends Component {
               </div>
               <hr></hr>
               <div className="card-body">
-                <h5 class="card-title text-center">Profile</h5>
+                <h5 className="card-title text-center">Profile</h5>
                 <div className="row">
                   <div className="col-md-6">
                     <div className="row">
