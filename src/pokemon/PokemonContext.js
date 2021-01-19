@@ -20,6 +20,7 @@ export class PokemonProvider extends React.Component {
     releasepokemon: this.releasepokemon,
   };
 
+
   render() {
     return (
       <PokemonContext.Provider value={this.state}>
