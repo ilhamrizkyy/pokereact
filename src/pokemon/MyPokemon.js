@@ -3,6 +3,7 @@ import { PokemonConsumer } from './PokemonContext';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 const Sprites = styled.img`
     width: 5em;
@@ -46,7 +47,8 @@ class MyPokemon extends Component {
         toManyRequests: false,
         pokemonIndex: '',
     }
-    componentDidMount() {
+
+    async componentDidMount() {
         const name = this.state.name;
         const pokemonIndex = this.state.pokemonIndex;
         const imageUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`;

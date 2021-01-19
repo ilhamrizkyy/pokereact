@@ -16,8 +16,6 @@ export default class PokemonList extends Component {
         this.setState({ pokemon: res.data['results'] });
     }
 
-
-
     render() {
         return (
             <PokemonConsumer>
