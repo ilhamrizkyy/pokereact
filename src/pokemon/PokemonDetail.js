@@ -478,7 +478,7 @@ export default class PokemonDetail extends Component {
                   if (nickname.includes) {
                     updatepokemon([{ key: name+nickname, name: name, nickname: nickname, id: nickname+name, pokemonIndex: this.state.pokemonIndex, imageUrl: this.state.imageUrl }]);
                     alert(nickname + " (" + name.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ') +
-                      ") successfully added to [My Pokemon]");
+                      ") successfully added to My Pokemon");
                   }
                 }}>Catch {this.state.name
                   .toLowerCase()
