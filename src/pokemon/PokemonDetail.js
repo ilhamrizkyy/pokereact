@@ -260,9 +260,9 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         HP
                     </div>
-                      <div className="col-12 col-md-6">
+                      <div className="col-12 col-md-8">
                         <div className="progress-bar" role="progressBar" style={{
-                          width: `${this.state.stats.hp}%`,
+                          width: `${this.state.stats.hp/1.5}%`,
                           backgroundColor: `#${this.state.themeColor}`,
                           borderRadius: `25px`,
                         }}
@@ -278,9 +278,9 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         Attack
                     </div>
-                      <div className="col-12 col-md-6">
+                      <div className="col-12 col-md-8">
                         <div className="progress-bar" role="progressBar" style={{
-                          width: `${this.state.stats.attack}%`,
+                          width: `${this.state.stats.attack/1.5}%`,
                           backgroundColor: `#${this.state.themeColor}`,
                           borderRadius: `25px`,
                         }}
@@ -296,9 +296,9 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         Defense
                     </div>
-                      <div className="col-12 col-md-6">
+                      <div className="col-12 col-md-8">
                         <div className="progress-bar" role="progressBar" style={{
-                          width: `${this.state.stats.defense}%`,
+                          width: `${this.state.stats.defense/1.5}%`,
                           backgroundColor: `#${this.state.themeColor}`,
                           borderRadius: `25px`,
                         }}
@@ -314,9 +314,9 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         Speed
                     </div>
-                      <div className="col-12 col-md-6">
+                      <div className="col-12 col-md-8">
                         <div className="progress-bar" role="progressBar" style={{
-                          width: `${this.state.stats.speed}%`,
+                          width: `${this.state.stats.speed/1.5}%`,
                           backgroundColor: `#${this.state.themeColor}`,
                           borderRadius: `25px`,
                         }}
@@ -332,9 +332,9 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         Special Attack
                     </div>
-                      <div className="col-12 col-md-6">
+                      <div className="col-12 col-md-8">
                         <div className="progress-bar" role="progressBar" style={{
-                          width: `${this.state.stats.specialAttack}%`,
+                          width: `${this.state.stats.specialAttack/1.5}%`,
                           backgroundColor: `#${this.state.themeColor}`,
                           borderRadius: `25px`,
                         }}
@@ -350,9 +350,9 @@ export default class PokemonDetail extends Component {
                       <div className="col-12 col-md-4">
                         Special Defense
                     </div>
-                      <div className="col-12 col-md-6">
+                      <div className="col-12 col-md-8">
                         <div className="progress-bar" role="progressBar" style={{
-                          width: `${this.state.stats.specialDefense}%`,
+                          width: `${this.state.stats.specialDefense/1.5}%`,
                           backgroundColor: `#${this.state.themeColor}`,
                           borderRadius: `25px`,
                         }}
